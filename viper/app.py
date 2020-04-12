@@ -1,7 +1,9 @@
 import os
-from flask import Flask
+import viper
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
+snake_charmer = viper.SnakeCharmer()
 
 @app.route('/')
 def hello():
@@ -13,16 +15,18 @@ def ping():
   return 'Pong'
 
 # To implement POST/start
-@app.route('/start')
+@app.route('/start', methods=['POST'])
 def start():
-  raise NotImplementedError
+  data = request.json
+  print('Game start')
+
 
 # To implement POST/move
-@app.route('/move')
+@app.route('/move', methods=['POST'])
 def move():
   raise NotImplementedError
 
 # To implement POST/end
-@app.route('/end')
+@app.route('/end', methods=['POST'])
 def end():
   raise NotImplementedError
