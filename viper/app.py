@@ -5,12 +5,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-  return 'Hello from Viper!'
+  return 'Viper is alive and ready to battle!'
 
 # To implement GET/ping
 @app.route('/ping')
 def ping():
-  raise NotImplementedError
+  return 'Pong'
 
 # To implement POST/start
 @app.route('/start')
