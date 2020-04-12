@@ -1,1 +1,1 @@
-web: export FLASK_APP='viper/app.py' && export ENV='production' &&  python -m flask run
+web: gunicorn app:app
