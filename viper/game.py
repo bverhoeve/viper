@@ -16,9 +16,12 @@ class Game:
         self.game_id = game_id
         self.turn = turn
         self.board = board
+
+        shout = viperDict['shout'] if 'shout' in viperDict else ''
+
         self.viper = RandomViper(
             viperDict['id'], viperDict['name'], viperDict['health'],
-            viperDict['body'], viperDict['shout']
+            viperDict['body'], shout
         )
     
     def get_viper(self):

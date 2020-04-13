@@ -24,7 +24,7 @@ class SnakeCharmer:
         return len(self.__games)
 
     def end_game(self, game_id):
-        self.__games[game_id] = None
+        del self.__games[game_id]
 
     def start_game(self, game_id: int, turn: int, board: Dict, viperDict: Dict) -> Viper:
         new_game = Game(game_id, turn, board, viperDict)
