@@ -43,17 +43,27 @@ def start() -> None:
     logging.info(
         f'Started game with id {game_id}. The generated viper is: {str(viper)}.'
     )
-    print(viper.get_config())
     return jsonify(viper.get_config())
 
 
 # To implement POST/move
 @app.route('/move', methods=['POST'])
 def move():
-    return jsonify({
-        'move': 'up',
-        'shout': 'Brecht is een dikke miet.'
-    })
+    data = request.json
+    game_id = data['game']['id']
+    turn = data['turn']
+    board = data['board']
+    viperDict = data['you']
+
+    logging.info(f'Received move request for game with id {game_id}')
+    
+    return jsonify(snake_charmer.move(
+        game_id=game_id,
+        turn=turn,
+        board=board,
+        viperDict=viperDict
+    ))
+    
 
 # To implement POST/end
 @app.route('/end', methods=['POST'])

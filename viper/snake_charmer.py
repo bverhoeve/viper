@@ -9,7 +9,7 @@ class SnakeCharmer:
     Manages the different games (snakes)
     """
     __instance = None
-    __games = {}
+    __games: Dict[int, Game] = {}
 
     def __new__(cls):
 
@@ -30,3 +30,10 @@ class SnakeCharmer:
         new_game = Game(game_id, turn, board, viperDict)
         self.__games[game_id] = new_game
         return new_game.get_viper()
+
+    def move(self, game_id: int, turn: int, board: Dict, viperDict: Dict):
+        logging.debug(f'Making a move in game with id {game_id}')
+        game: Game = self.__games[game_id]
+        move_response = game.move()
+
+        return move_response

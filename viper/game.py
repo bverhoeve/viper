@@ -23,3 +23,13 @@ class Game:
     
     def get_viper(self):
         return self.viper
+
+    def move(self):
+        move: str = self.viper.move()
+
+        move_response: Dict = {
+            'move': move,
+            'shout': self.viper.shout
+        }
+
+        return move_response
