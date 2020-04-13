@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+
+  viper:
+    container_name: viper
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile
+    volumes:
+      - ../viper/:/viper/
+    working_dir: /viper
+    stdin_open: true
+    tty: true
+    ports:
+      - 5000:5000
