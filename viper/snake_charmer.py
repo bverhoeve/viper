@@ -1,14 +1,21 @@
+import logging
+
 from typing import Dict
 
 class SnakeCharmer:
   """SnakeCharmer class
   Manages the different games (snakes)
   """
-  _games: Dict
+  __instance = None
 
-  def __init__(self):
-    # Initialize a games dictionary
-    self._games = {}
+  def __new__(cls):
+
+    if SnakeCharmer.__instance is None:
+      logging.debug('Creating new SnakeCharmer')
+      SnakeCharmer.__instance = object.__new__(cls)
+      SnakeCharmer.__instance._games = {}
+      
+    return SnakeCharmer.__instance
 
   def start_game(self, game_data: Dict):
     pass
