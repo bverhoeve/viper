@@ -1,0 +1,12 @@
+{
+  "python.pythonPath": "venv/bin/python3",
+  "spellright.language": [],
+  "spellright.documentTypes": [
+    "markdown",
+    "latex"
+  ],
+  "python.linting.pylintEnabled": true,
+  "python.linting.enabled": true,
+  "editor.tabSize": 4,
+  "editor.detectIndentation": true
+}
