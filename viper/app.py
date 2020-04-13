@@ -19,7 +19,7 @@ def hello():
     return 'Viper is alive and ready to battle!'
 
 # To implement GET/ping
-@app.route('/ping')
+@app.route('/ping', methods=['GET', 'POST'])
 def ping():
     return 'Pong'
 
