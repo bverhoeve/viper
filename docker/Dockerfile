@@ -6,4 +6,4 @@ COPY requirements.txt /tmp/requirements.txt
 RUN pip install --upgrade pip && \
     pip install -r /tmp/requirements.txt
 
-CMD start_dev_server.sh
+CMD ["bash", "start_dev_server.sh"]

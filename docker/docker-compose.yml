@@ -8,8 +8,8 @@ services:
       context: ../
       dockerfile: ./docker/Dockerfile
     volumes:
-      - ../viper/:/viper/
-    working_dir: /viper
+      - ../:/app/
+    working_dir: /app
     stdin_open: true
     tty: true
     ports:
