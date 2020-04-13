@@ -2,8 +2,21 @@ version: '2'
 
 services:
 
-  viper:
-    container_name: viper
+  viper-engine:
+    container_name: viper-engine
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile-engine
+    ports:
+      - 3004:3004
+      - 3005:3005
+      - 3009:3009
+      - 3010:3010
+    networks:
+      - vipernet
+
+  viper1:
+    container_name: viper1
     build:
       context: ../
       dockerfile: ./docker/Dockerfile
@@ -14,3 +27,25 @@ services:
     tty: true
     ports:
       - 5000:5000
+    networks:
+      - vipernet  
+
+  viper2:
+    container_name: viper2
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile
+    volumes:
+      - ../:/app/
+    working_dir: /app
+    stdin_open: true
+    tty: true
+    ports:
+      - 5001:5000
+    networks:
+      - vipernet
+
+
+networks:
+  vipernet:
+    driver: bridge

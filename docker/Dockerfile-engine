@@ -1,0 +1,12 @@
+FROM alpine:latest
+
+EXPOSE 3010
+
+RUN mkdir /engine
+RUN wget https://github.com/battlesnakeio/engine/releases/download/0.2.25/engine_0.2.25_Linux_x86_64.tar.gz -O /engine/engine.tar.gz
+
+WORKDIR /engine
+
+RUN tar -xvf engine.tar.gz
+
+CMD ["./engine", "dev"]
