@@ -43,6 +43,9 @@ class Viper(abc.ABC):
         self.shout = shout
         self.color = random.choice(Viper.COLORS)
 
+    def __str__(self):
+        return f'Viper with name {self.name} and color: ${self.color}.'
+
     @property
     @abc.abstractmethod
     def head(self) -> str:
