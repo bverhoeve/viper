@@ -50,10 +50,10 @@ def start() -> None:
 # To implement POST/move
 @app.route('/move', methods=['POST'])
 def move():
-    return {
-        move: "up",
-        shout: "Brecht is een dikke miet."
-    }
+    return jsonify({
+        'move': 'up',
+        'shout': 'Brecht is een dikke miet.'
+    })
 
 # To implement POST/end
 @app.route('/end', methods=['POST'])
