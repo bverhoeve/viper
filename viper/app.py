@@ -76,3 +76,4 @@ def end() -> None:
         f'Ended game with id {game_id}.' + 
         f'Number of games still running: {snake_charmer.get_numer_of_active_games()}.'
     )
+    return ''
