@@ -30,25 +30,39 @@ def start() -> None:
     game_id = data['game']['id']
     turn = data['turn']
     board = data['board']
-    our_snake = data['you']
+    viperDict = data['you']
 
-    logging.info('Received request to start new game with id {}'.format(game_id))
-    snake_charmer.start_game(
+    logging.info(f'Received request to start new game with id {game_id}')
+    viper = snake_charmer.start_game(
         game_id=game_id,
         turn=turn,
         board=board,
-        our_snake=our_snake
+        viperDict=viperDict
     )
 
-    return 'Game started'
+    logging.info(
+        f'Started game with id {game_id}. The generated viper is: {str(viper)}.'
+    )
+    print(viper.get_config())
+    return jsonify(viper.get_config())
 
 
 # To implement POST/move
 @app.route('/move', methods=['POST'])
 def move():
-    raise NotImplementedError
+    return {
+        move: "up",
+        shout: "Brecht is een dikke miet."
+    }
 
 # To implement POST/end
 @app.route('/end', methods=['POST'])
-def end():
-    raise NotImplementedError
+def end() -> None:
+    data = request.json
+    game_id = data['game']['id']
+    logging.info(f'Received request to end game with id {game_id}.')
+    snake_charmer.end_game(game_id)
+    logging.info(
+        f'Ended game with id {game_id}.' + 
+        f'Number of games still running: {snake_charmer.get_numer_of_active_games()}.'
+    )

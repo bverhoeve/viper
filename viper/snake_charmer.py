@@ -1,12 +1,15 @@
 import logging
 
 from typing import Dict
+from .game import Game
+from .viper import Viper
 
 class SnakeCharmer:
     """SnakeCharmer class
     Manages the different games (snakes)
     """
     __instance = None
+    __games = {}
 
     def __new__(cls):
 
@@ -17,5 +20,13 @@ class SnakeCharmer:
             
         return SnakeCharmer.__instance
 
-    def start_game(self, game_id: int, turn: int, board: Dict, our_snake: Dict):
-        pass
+    def get_numer_of_active_games(self):
+        return len(self.__games)
+
+    def end_game(self, game_id):
+        self.__games[game_id] = None
+
+    def start_game(self, game_id: int, turn: int, board: Dict, viperDict: Dict) -> Viper:
+        new_game = Game(game_id, turn, board, viperDict)
+        self.__games[game_id] = new_game
+        return new_game.get_viper()

@@ -1,7 +1,8 @@
 import logging
 
 from typing import Dict
-from viper import Snake
+from .random_viper import RandomViper
+from .viper import Viper
 
 class Game:
     """A game of snake
@@ -9,12 +10,16 @@ class Game:
     game_id: int
     turn: int
     board: Dict
+    viper: Viper
 
-    # To implement
-    snake: object
-
-    def __init__(self, game_id: int, turn: int, board: Dict, our_snake: Dict):
+    def __init__(self, game_id: int, turn: int, board: Dict, viperDict: Dict):
         self.game_id = game_id
         self.turn = turn
         self.board = board
+        self.viper = RandomViper(
+            viperDict['id'], viperDict['name'], viperDict['health'],
+            viperDict['body'], viperDict['shout']
+        )
     
+    def get_viper(self):
+        return self.viper
