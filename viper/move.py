@@ -7,3 +7,6 @@ class Move(Enum):
     DOWN = 'down'
     LEFT = 'left'
     RIGHT = 'right'
+
+    def __str__(self) -> str:
+        return self.value

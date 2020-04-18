@@ -34,6 +34,6 @@ class SnakeCharmer:
     def move(self, game_id: int, turn: int, board: Dict, viperDict: Dict):
         logging.debug(f'Making a move in game with id {game_id}')
         game: Game = self.__games[game_id]
-        move_response = game.move()
+        move_response = game.move(board, viperDict)
 
         return move_response
