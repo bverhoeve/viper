@@ -1,6 +1,7 @@
 import random
 
 from .viper import Viper
+from .move import Move
 
 class RandomViper(Viper):
 
@@ -12,5 +13,5 @@ class RandomViper(Viper):
     def tail(self) -> str:
         return 'freckled'
 
-    def move(self) -> str:
-        return random.choice(Viper.MOVES)
+    def move(self) -> Move:
+        return random.choice(list(Move))

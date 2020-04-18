@@ -3,6 +3,7 @@ import logging
 from typing import Dict
 from .random_viper import RandomViper
 from .viper import Viper
+from .move import Move
 
 class Game:
     """A game of snake
@@ -28,10 +29,10 @@ class Game:
         return self.viper
 
     def move(self):
-        move: str = self.viper.move()
+        move: Move = self.viper.move()
 
         move_response: Dict = {
-            'move': move,
+            'move': move.value,
             'shout': self.viper.shout
         }
 

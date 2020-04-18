@@ -1,7 +1,9 @@
 import abc
-from typing import Dict
+from typing import Dict, List
 import logging
 import random
+
+from .move import Move
 
 class Viper(abc.ABC):
     """An abstract viper
@@ -22,13 +24,6 @@ class Viper(abc.ABC):
         'regular'
     ]
 
-    MOVES = [
-        'up',
-        'down',
-        'left',
-        'right'
-    ]
-
     viper_id: int
     name: str 
     health: int
@@ -46,6 +41,10 @@ class Viper(abc.ABC):
     def __str__(self):
         return f'Viper with name {self.name} and color: ${self.color}.'
 
+    ####################
+    # Abstract methods #
+    ####################
+
     @property
     @abc.abstractmethod
     def head(self) -> str:
@@ -56,6 +55,14 @@ class Viper(abc.ABC):
     def tail(self) -> str:
         pass
 
+    @abc.abstractmethod
+    def move(self) -> Move:
+        pass
+
+    ###################
+    # General methods #
+    ###################
+
     def get_config(self) -> Dict:
         return {
             'color': self.color,
@@ -63,6 +70,7 @@ class Viper(abc.ABC):
             'tailType': self.tail
         }
 
-    @abc.abstractmethod
-    def move(self):
+    def determine_valid_moves(self) -> List[Move]:
         pass
+
+    
