@@ -35,7 +35,9 @@ $ heroku local
 ```
 
 ## The Battlesnake field
-The battlesnake field is a 2D grid with integer coordinates. This is represented in the figure below:
+The battlesnake field is a 2D grid with integer coordinates. The origin
+is located in the top-left corner. The width and height of the board are the outer borders
+of each board and can be seen as the length of the coordinate arrays. This is represented in the figure below:
 ![Battlesnake field](./docs/field.png)
 
 
