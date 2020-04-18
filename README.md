@@ -34,6 +34,10 @@ You can run the app locally with Heroku:
 $ heroku local
 ```
 
+## The Battlesnake field
+The battlesnake field is a 2D grid with integer coordinates. This is represented in the figure below:
+![Battlesnake field](./docs/field.png)
+
 
 
 
