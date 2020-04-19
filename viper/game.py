@@ -2,6 +2,7 @@ import logging
 
 from typing import Dict
 from .random_viper import RandomViper, RandomCDViper
+from .euclid_viper import EuclidViper
 from .viper import Viper
 from .move import Move
 from .board import Board
@@ -21,7 +22,7 @@ class Game:
 
         shout = viperDict['shout'] if 'shout' in viperDict else ''
 
-        self.viper = RandomCDViper(
+        self.viper = EuclidViper(
             viperDict['id'], viperDict['name'], viperDict['health'],
             viperDict['body'], shout
         )
