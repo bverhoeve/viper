@@ -103,6 +103,19 @@ class Viper(abc.ABC):
             'tailType': self.tail
         }
 
+    def determine_next_position(self, current_position: Dict, move: Move):
+
+        if (move is Move.UP):
+            new_position: Dict = self.determine_up_position(current_position)
+        elif (move is Move.RIGHT):
+            new_position: Dict = self.determine_right_position(current_position)
+        elif (move is Move.DOWN):
+            new_position: Dict = self.determine_down_position(current_position)
+        else:
+            new_position: Dict = self.determine_left_position(current_position)
+
+        return new_position
+
     def determine_up_position(self, current_position: Dict) -> Dict:
 
         return {
