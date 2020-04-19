@@ -73,7 +73,6 @@ def end() -> None:
     logging.info(f'Received request to end game with id {game_id}.')
     snake_charmer.end_game(game_id)
     logging.info(
-        f'Ended game with id {game_id}.' + 
-        f'Number of games still running: {snake_charmer.get_numer_of_active_games()}.'
+        f'Ended game with id {game_id}.'
     )
     return ''
