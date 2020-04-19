@@ -2,6 +2,7 @@ import abc
 from typing import Dict, List, Optional, Tuple
 import logging
 import random
+from enum import Enum
 
 from .move import Move
 from .board import Board
@@ -15,15 +16,46 @@ class Viper(abc.ABC):
         'EF3340'    # Red
     ]
 
-    # Todo, check which head we want
-    HEADS = [
-        'regular',
-    ]
+    # Tail types for vipers
+    class TailType(Enum):
+        REGULAR = 'regular'
+        BLOCK_BUM = 'block-bum'
+        BOLT = 'bolt'
+        CURLED = 'curled'
+        FAT_RATTLE = 'fat-rattle'
+        FRECKLED = 'freckled'
+        HOOK = 'hook'
+        PIXEL = 'pixel'
+        ROUND_BUM = 'round_bum'
+        SHARP = 'sharp'
+        SKINYY = 'skinny'
+        SMALL_RATTLE = 'small_rattle'
+        BWC_BONHOMME = 'bwc-bonhomme'
+        BWC_FLAKE = 'bwc-flake'
+        BWC_ICE_SKATE = 'bwc_ice_skate'
+        BWC_PRESENT = 'bwc_present'
 
-    # 
-    TAILS = [
-        'regular'
-    ]
+    class HeadType(Enum):
+        REGULAR = 'regular'
+        BELUGA = 'beluga'
+        BENDR = 'bendr'
+        DEAD = 'dead'
+        EVIL = 'evil'
+        FANG = 'fang'
+        PIXEL = 'pixel'
+        SAFE = 'safe'
+        SAND_WORM = 'sand-worm'
+        SHADES = 'shades'
+        SILLY  = 'silly'
+        SMILE = 'smile'
+        TONGUE = 'tongue'
+        BWC_BONHOMME = 'bwc-bonhomme'
+        BWC_EARMUFFS = 'bwc-earmuffs'
+        BWC_RUDOLPH = 'bwc-rudolph'
+        BWC_SCARF = 'bwc-scarf'
+        BWC_SKI = 'bwc-ski'
+        BWC_SNOW_WORM = 'bwc-snow-worm'
+        BWC_SNOWMAN = 'bwc-snowman'
 
     viper_id: int
     name: str 
