@@ -1,4 +1,4 @@
-import os
+import socket
 import logging
 
 from flask import Flask, request, jsonify
@@ -6,6 +6,8 @@ from flask import Flask, request, jsonify
 import viper
 
 # Set logging level
+hostname: str = socket.gethostname()
+logfile_name: str = hostname + '.log'
 logging.basicConfig(format='%(asctime)s %(levelname)s : %(message)s', level=logging.DEBUG)
 
 # Create flask app
