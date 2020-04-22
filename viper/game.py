@@ -3,6 +3,7 @@ import logging
 from typing import Dict
 from .random_viper import RandomViper, RandomCDViper
 from .euclid_viper import EuclidViper
+from .free_space_viper import FreeSpaceViper
 from .viper import Viper
 from .move import Move
 from .board import Board

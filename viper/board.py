@@ -1,5 +1,6 @@
 from typing import List, Dict
 import logging
+import numpy as np
 
 class Board:
 
@@ -45,3 +46,27 @@ class Board:
         logging.debug(f'Position {position} is out of bounds: {out_of_bounds}')
 
         return out_of_bounds_x or out_of_bounds_y
+
+    def get_matrix_representation(self):
+        """
+        Get a matrix representation of the board
+       
+        matrix representation is 3 dimensions:
+        - width of the board
+        - height of the board
+        - 2 values (free, food) where for
+            - free: 0 is an occupied position, 1 is a free position
+            - food: 0 is a food rich, 1 is foodless position
+
+        Returns:
+            [type] -- [description]
+        """
+        
+        matrix = np.ones( (self.width, self.height, 2) )
+
+        for position in self.occupied_tiles:
+            matrix.itemset((position['x'], position['y'], 0), 0)
+        for position in self.food_tiles:
+            matrix.itemset((position['x'], position['y'], 1), 0)
+
+        return matrix
